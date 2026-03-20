@@ -1,6 +1,18 @@
 ﻿# Angular Component Design System
 
-A reusable Angular component library inspired by Angular Material, built with Angular 17, Tailwind CSS, Storybook, and Angular CDK. This repo is structured as a **library-first Angular workspace**, so source code lives under `projects/` (not a root `src/`).
+This repository is a **library-first Angular workspace** that showcases how to build a scalable, reusable UI component system (similar in spirit to Angular Material) from the ground up. Instead of a single app, the workspace contains a **publishable component library** (`projects/acds`) and a **demo playground app** (`projects/playground`) used to validate and showcase the components in real time. Source code intentionally lives under `projects/` (there is no root `src/`), which is the standard structure for Angular libraries.
+
+**What this project is about**
+- Building a cohesive UI system with consistent behavior, styling, and accessibility.
+- Providing a theming layer via design tokens + CSS variables that can be swapped per brand or product.
+- Documenting components with Storybook so usage and variants are visible to any team.
+- Proving clean architecture: standalone components, clear public API, and CDK-driven behaviors.
+
+**What you get out of the box**
+- Core UI primitives (Button, Badge, Tabs, Accordion, Modal, Drawer, Tooltip, Popover).
+- Form foundations (Input, Select, Autocomplete, Datepicker, MultiSelect).
+- Data building blocks (DataTable, Pagination, Tree View).
+- A working playground app and Storybook setup for demo + documentation.
 
 ## What This Proves
 - Scalable Angular architecture for a component library.
