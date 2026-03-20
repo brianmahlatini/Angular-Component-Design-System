@@ -1,13 +1,13 @@
 ﻿# Angular Component Design System
 
-A reusable Angular component library inspired by Angular Material, built with Angular 17, Tailwind CSS, Storybook, and Angular CDK.
+A reusable Angular component library inspired by Angular Material, built with Angular 17, Tailwind CSS, Storybook, and Angular CDK. This repo is structured as a **library-first Angular workspace**, so source code lives under `projects/` (not a root `src/`).
 
 ## What This Proves
 - Scalable Angular architecture for a component library.
-- Theming with design tokens and CSS variables.
-- Accessibility-first components using Angular CDK.
-- Documentation and visual testing via Storybook.
-- Unit test coverage for critical components.
+- A theming system based on design tokens + CSS variables.
+- Accessibility-first UI built on Angular CDK.
+- Storybook-driven documentation and visual testing.
+- Unit testing for foundational components.
 
 ## Tech Stack
 - Angular 17
@@ -17,12 +17,70 @@ A reusable Angular component library inspired by Angular Material, built with An
 - TypeScript
 
 ## Project Structure
-- `projects/acds/` — Component library source
-- `projects/acds/src/lib/components/` — UI, forms, data, and advanced components
-- `projects/acds/src/lib/theme/` — Theme tokens, CSS variables, and theme service
+**Key folders**
+- `projects/acds/` — Component library source (publishable)
 - `projects/playground/` — Demo application for local development
 - `.storybook/` — Storybook configuration
-- `Dockerfile` — Builds Storybook and serves it with Nginx
+
+## Full Tree (Important Files)
+```
+angular-component-design-system
+├─ .storybook
+│  ├─ main.ts
+│  ├─ preview.ts
+│  └─ tsconfig.json
+├─ .vscode
+│  ├─ extensions.json
+│  ├─ launch.json
+│  └─ tasks.json
+├─ projects
+│  ├─ acds
+│  │  ├─ ng-package.json
+│  │  ├─ package.json
+│  │  ├─ README.md
+│  │  ├─ tsconfig.lib.json
+│  │  ├─ tsconfig.lib.prod.json
+│  │  └─ src
+│  │     ├─ public-api.ts
+│  │     └─ lib
+│  │        ├─ components
+│  │        │  ├─ accordion
+│  │        │  ├─ autocomplete
+│  │        │  ├─ badge
+│  │        │  ├─ button
+│  │        │  ├─ data-table
+│  │        │  ├─ datepicker
+│  │        │  ├─ drawer
+│  │        │  ├─ input
+│  │        │  ├─ modal
+│  │        │  ├─ multi-select
+│  │        │  ├─ pagination
+│  │        │  ├─ popover
+│  │        │  ├─ select
+│  │        │  ├─ tabs
+│  │        │  ├─ tooltip
+│  │        │  └─ tree-view
+│  │        └─ theme
+│  │           ├─ theme.css
+│  │           ├─ theme.service.ts
+│  │           └─ theme.tokens.ts
+│  └─ playground
+│     ├─ src
+│     │  ├─ app
+│     │  ├─ assets
+│     │  ├─ index.html
+│     │  ├─ main.ts
+│     │  └─ styles.css
+│     └─ tsconfig.app.json
+├─ .dockerignore
+├─ Dockerfile
+├─ angular.json
+├─ package.json
+├─ package-lock.json
+├─ postcss.config.js
+├─ tailwind.config.js
+└─ tsconfig.json
+```
 
 ## Components (Current)
 UI
