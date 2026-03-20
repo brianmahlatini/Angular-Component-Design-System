@@ -1,0 +1,79 @@
+﻿<div class="min-h-screen bg-bg px-8 py-10 text-fg">
+  <header class="mb-10 flex items-center justify-between">
+    <div>
+      <h1 class="text-3xl font-semibold" style="font-family: var(--acds-font-display);">ACDS Playground</h1>
+      <p class="text-sm text-muted">A reusable Angular component system.</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <acds-button variant="secondary">Docs</acds-button>
+      <acds-button (click)="showModal = true">Launch</acds-button>
+    </div>
+  </header>
+
+  <section class="grid gap-6 md:grid-cols-2">
+    <div class="space-y-4 rounded-lg border border-border bg-white/60 p-6">
+      <h2 class="text-lg font-semibold">Buttons & Badges</h2>
+      <div class="flex flex-wrap gap-3">
+        <acds-button>Primary</acds-button>
+        <acds-button variant="secondary">Secondary</acds-button>
+        <acds-button variant="ghost">Ghost</acds-button>
+        <acds-button variant="danger">Danger</acds-button>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <acds-badge>Neutral</acds-badge>
+        <acds-badge tone="primary">Primary</acds-badge>
+        <acds-badge tone="accent">Accent</acds-badge>
+        <acds-badge tone="danger">Alert</acds-badge>
+      </div>
+    </div>
+
+    <div class="space-y-4 rounded-lg border border-border bg-white/60 p-6">
+      <h2 class="text-lg font-semibold">Tabs & Accordion</h2>
+      <acds-tabs [(activeId)]="activeTab">
+        <acds-tab-panel tabId="overview" label="Overview">
+          <p class="text-sm text-muted">Product highlights and release notes.</p>
+        </acds-tab-panel>
+        <acds-tab-panel tabId="analytics" label="Analytics">
+          <p class="text-sm text-muted">Engagement metrics for the last 30 days.</p>
+        </acds-tab-panel>
+      </acds-tabs>
+      <acds-accordion>
+        <acds-accordion-item title="Design principles" [open]="true">
+          We prioritize clarity, accessibility, and a bold aesthetic.
+        </acds-accordion-item>
+        <acds-accordion-item title="Delivery" >
+          Weekly release cadence with documented changes.
+        </acds-accordion-item>
+      </acds-accordion>
+    </div>
+
+    <div class="space-y-4 rounded-lg border border-border bg-white/60 p-6">
+      <h2 class="text-lg font-semibold">Forms</h2>
+      <acds-input label="Project name" placeholder="New initiative"></acds-input>
+    </div>
+
+    <div class="space-y-4 rounded-lg border border-border bg-white/60 p-6">
+      <h2 class="text-lg font-semibold">Data</h2>
+      <acds-data-table [columns]="tableColumns" [rows]="tableRows"></acds-data-table>
+      <acds-pagination [page]="1" [pageSize]="10" [total]="32"></acds-pagination>
+    </div>
+
+    <div class="space-y-4 rounded-lg border border-border bg-white/60 p-6">
+      <h2 class="text-lg font-semibold">Tree View</h2>
+      <acds-tree-view [nodes]="treeNodes"></acds-tree-view>
+    </div>
+
+    <div class="space-y-4 rounded-lg border border-border bg-white/60 p-6">
+      <h2 class="text-lg font-semibold">Drawer</h2>
+      <acds-button variant="secondary" (click)="showDrawer = true">Open drawer</acds-button>
+    </div>
+  </section>
+
+  <acds-modal [(open)]="showModal" title="Launch new workflow" subtitle="Review the details before proceeding">
+    <p class="text-sm text-muted">This will notify your entire team immediately.</p>
+  </acds-modal>
+
+  <acds-drawer [(open)]="showDrawer" title="Activity" subtitle="Latest events">
+    <p class="text-sm text-muted">No new alerts.</p>
+  </acds-drawer>
+</div>
