@@ -1,4 +1,4 @@
-﻿import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+﻿import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 @Component({
@@ -7,10 +7,11 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule],
   template: `
     <button
-      class="inline-flex items-center justify-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium transition"
+      class="inline-flex items-center justify-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-60"
       [ngClass]="variantClasses"
       [attr.type]="type"
       [disabled]="disabled || loading"
+      (click)="handleClick()"
     >
       <span
         *ngIf="loading"
@@ -29,6 +30,7 @@ export class AcdsButtonComponent {
   @Input() disabled = false;
   @Input() loading = false;
   @Input() block = false;
+  @Output() pressed = new EventEmitter<void>();
 
   get variantClasses(): string {
     const base = [
@@ -36,6 +38,7 @@ export class AcdsButtonComponent {
       "focus-visible:outline-none",
       "focus-visible:ring-2",
       "focus-visible:ring-accent",
+      "cursor-pointer",
     ];
     if (this.block) base.push("w-full");
     if (this.size === "sm") base.push("text-xs", "px-3", "py-1.5");
@@ -56,5 +59,10 @@ export class AcdsButtonComponent {
     }
 
     return base.join(" ");
+  }
+
+  handleClick(): void {
+    if (this.disabled || this.loading) return;
+    this.pressed.emit();
   }
 }

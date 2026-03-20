@@ -12,8 +12,8 @@ export type AcdsTableColumn<T> = {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="overflow-hidden rounded-lg border border-border">
-      <table class="w-full text-left text-sm">
+    <div class="overflow-x-auto rounded-lg border border-border">
+      <table class="min-w-[520px] w-full text-left text-sm">
         <thead class="bg-muted/10">
           <tr>
             <th

@@ -13,7 +13,9 @@ import {
   AcdsTabPanelComponent,
   AcdsTabsComponent,
   AcdsTreeViewComponent,
+  AcdsTableColumn,
 } from "acds";
+import { OverlayModule } from "@angular/cdk/overlay";
 
 @Component({
   selector: "app-root",
@@ -32,6 +34,7 @@ import {
     AcdsTreeViewComponent,
     AcdsModalComponent,
     AcdsDrawerComponent,
+    OverlayModule,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
@@ -40,8 +43,9 @@ export class AppComponent {
   activeTab = "overview";
   showModal = false;
   showDrawer = false;
+  lastAction = "None yet";
 
-  tableColumns = [
+  tableColumns: AcdsTableColumn<{ name: string; role: string }>[] = [
     { key: "name", label: "Name" },
     { key: "role", label: "Role" },
   ];
@@ -65,4 +69,8 @@ export class AppComponent {
       children: [{ id: "2-1", label: "Architecture" }],
     },
   ];
+
+  handleAction(label: string): void {
+    this.lastAction = label;
+  }
 }

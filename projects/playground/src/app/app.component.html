@@ -1,23 +1,27 @@
-﻿<div class="min-h-screen bg-bg px-8 py-10 text-fg">
-  <header class="mb-10 flex items-center justify-between">
+﻿<div class="min-h-screen bg-bg px-4 py-8 text-fg sm:px-6 lg:px-10">
+  <header class="mb-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
     <div>
       <h1 class="text-3xl font-semibold" style="font-family: var(--acds-font-display);">ACDS Playground</h1>
       <p class="text-sm text-muted">A reusable Angular component system.</p>
     </div>
-    <div class="flex items-center gap-3">
-      <acds-button variant="secondary">Docs</acds-button>
-      <acds-button (click)="showModal = true">Launch</acds-button>
+    <div class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+      <acds-button variant="secondary" [block]="true" (pressed)="handleAction('Docs clicked')">Docs</acds-button>
+      <acds-button [block]="true" (pressed)="showModal = true; handleAction('Launch modal')">Launch</acds-button>
     </div>
   </header>
+
+  <div class="mb-8 rounded-md border border-border bg-white/70 px-4 py-3 text-sm text-muted" aria-live="polite">
+    Last action: <span class="font-medium text-fg">{{ lastAction }}</span>
+  </div>
 
   <section class="grid gap-6 md:grid-cols-2">
     <div class="space-y-4 rounded-lg border border-border bg-white/60 p-6">
       <h2 class="text-lg font-semibold">Buttons & Badges</h2>
       <div class="flex flex-wrap gap-3">
-        <acds-button>Primary</acds-button>
-        <acds-button variant="secondary">Secondary</acds-button>
-        <acds-button variant="ghost">Ghost</acds-button>
-        <acds-button variant="danger">Danger</acds-button>
+        <acds-button (pressed)="handleAction('Primary button')">Primary</acds-button>
+        <acds-button variant="secondary" (pressed)="handleAction('Secondary button')">Secondary</acds-button>
+        <acds-button variant="ghost" (pressed)="handleAction('Ghost button')">Ghost</acds-button>
+        <acds-button variant="danger" (pressed)="handleAction('Danger button')">Danger</acds-button>
       </div>
       <div class="flex flex-wrap gap-2">
         <acds-badge>Neutral</acds-badge>
@@ -41,7 +45,7 @@
         <acds-accordion-item title="Design principles" [open]="true">
           We prioritize clarity, accessibility, and a bold aesthetic.
         </acds-accordion-item>
-        <acds-accordion-item title="Delivery" >
+        <acds-accordion-item title="Delivery">
           Weekly release cadence with documented changes.
         </acds-accordion-item>
       </acds-accordion>
@@ -65,7 +69,7 @@
 
     <div class="space-y-4 rounded-lg border border-border bg-white/60 p-6">
       <h2 class="text-lg font-semibold">Drawer</h2>
-      <acds-button variant="secondary" (click)="showDrawer = true">Open drawer</acds-button>
+      <acds-button variant="secondary" (pressed)="showDrawer = true; handleAction('Open drawer')">Open drawer</acds-button>
     </div>
   </section>
 

@@ -1,12 +1,11 @@
 ﻿import { Directive, ElementRef, HostListener, Input, OnDestroy, TemplateRef } from "@angular/core";
-import { Overlay, OverlayModule, OverlayRef, FlexibleConnectedPositionStrategy } from "@angular/cdk/overlay";
+import { Overlay, OverlayRef, FlexibleConnectedPositionStrategy } from "@angular/cdk/overlay";
 import { ComponentPortal } from "@angular/cdk/portal";
 import { AcdsPopoverPanelComponent } from "./popover-panel.component";
 
 @Directive({
   selector: "[acdsPopover]",
   standalone: true,
-  imports: [OverlayModule],
 })
 export class AcdsPopoverDirective implements OnDestroy {
   @Input("acdsPopover") content: string | TemplateRef<unknown> = "";

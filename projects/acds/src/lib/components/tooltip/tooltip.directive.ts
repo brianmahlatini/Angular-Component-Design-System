@@ -1,12 +1,11 @@
 ﻿import { Directive, ElementRef, HostListener, Input, OnDestroy } from "@angular/core";
-import { Overlay, OverlayModule, OverlayRef, FlexibleConnectedPositionStrategy } from "@angular/cdk/overlay";
+import { Overlay, OverlayRef, FlexibleConnectedPositionStrategy } from "@angular/cdk/overlay";
 import { ComponentPortal } from "@angular/cdk/portal";
 import { AcdsTooltipPanelComponent } from "./tooltip-panel.component";
 
 @Directive({
   selector: "[acdsTooltip]",
   standalone: true,
-  imports: [OverlayModule],
 })
 export class AcdsTooltipDirective implements OnDestroy {
   @Input("acdsTooltip") text = "";
